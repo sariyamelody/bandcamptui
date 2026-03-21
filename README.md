@@ -1,5 +1,7 @@
 # bandcamptui
 
+> **Note:** This package depends on a couple of small changes to bandcampsync that haven't been merged upstream yet ([PR pending](https://github.com/sariyamelody/bandcampsync/tree/sariyamelody/upstream-changes)). It won't be functional until those land.
+
 An interactive terminal UI for selectively downloading your Bandcamp purchases. Built with [Textual](https://github.com/Textualize/textual) on top of the excellent [bandcampsync](https://github.com/meeb/bandcampsync) by [@meeb](https://github.com/meeb).
 
 ## Install
