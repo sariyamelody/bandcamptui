@@ -1,0 +1,45 @@
+[project]
+name = "bandcamptui"
+version = "0.1.0"
+authors = [
+  {name="sariya melody", email="sariya@sariya.garden"},
+]
+description = "An interactive terminal UI for selectively downloading media purchased on bandcamp.com."
+readme = "README.md"
+requires-python = ">=3.10"
+license = "BSD-3-Clause"
+license-files = ["LICENSE"]
+dependencies = [
+    "bandcampsync>=0.7.0",
+    "textual>=1.0.0",
+]
+keywords = [
+  "bandcamp",
+  "tui",
+  "textual",
+  "music",
+  "download",
+]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3",
+  "Topic :: Multimedia :: Sound/Audio",
+]
+
+[project.urls]
+Homepage = "https://github.com/sariyamelody/bandcamptui"
+Repository = "https://github.com/sariyamelody/bandcamptui.git"
+Issues = "https://github.com/sariyamelody/bandcamptui/issues"
+
+[dependency-groups]
+dev = [
+    "pytest>=9.0.2",
+    "pytest-mock>=3.15.1",
+    "ruff>=0.14.3",
+]
+
+[build-system]
+requires = ["setuptools >= 77.0.3"]
+build-backend = "setuptools.build_meta"

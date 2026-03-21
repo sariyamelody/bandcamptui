@@ -1,0 +1,78 @@
+#!/usr/bin/env python
+
+
+import sys
+import argparse
+from pathlib import Path
+from bandcamptui import version, run_interactive
+
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser(
+        prog='bandcamptui',
+        description='Interactive TUI for selecting and downloading media purchased on bandcamp.com',
+    )
+    parser.add_argument('-v', '--version', action='store_true',
+        help='Displays the bandcamptui version and exits')
+    parser.add_argument('-c', '--cookies', required=True,
+        help='Path to the cookies file')
+    parser.add_argument('-d', '--directory', required=True,
+        help='Path to the directory to download media to')
+    parser.add_argument('-I', '--ignore-file', default='',
+        help='Path to the ignore file')
+    parser.add_argument('-i', '--ignore', default='',
+        help='A space-delimited list of patterns matching artists to bypass')
+    parser.add_argument('-f', '--format', default='flac',
+        help='Default media format to download, defaults to "flac"')
+    parser.add_argument('-t', '--temp-dir', default='',
+        help='Path to use for temporary downloads')
+    parser.add_argument('-j', '--concurrency', type=int, default=1,
+        help='Number of concurrent downloads (default: 1)')
+    parser.add_argument('--max-retries', type=int, default=3,
+        help='Maximum number of retries for a download (default: 3)')
+    parser.add_argument('--retry-wait', type=int, default=5,
+        help='Number of seconds to wait between retries (default: 5)')
+    parser.add_argument('--skip-item-index', action='store_true',
+        help='Skip indexing downloaded items in the filesystem; only use ignore file for determining which items are downloaded already')
+    args = parser.parse_args()
+    if args.version:
+        print(f'BandcampTUI version: {version}', file=sys.stdout)
+        sys.exit(0)
+    cookies_path = Path(args.cookies).resolve()
+    ign_file_path = Path(args.ignore_file).resolve() if args.ignore_file else None
+    dir_path = Path(args.directory).resolve()
+    ign_patterns = args.ignore
+    media_format = args.format
+
+    if args.skip_item_index and not ign_file_path:
+        raise ValueError("--skip-item-index was passed, but no ignore file path was passed. --skip-item-index requires an ignore file path (--ignore-file/-I)")
+
+    if not cookies_path.is_file():
+        raise ValueError(f'Cookies file does not exist: {cookies_path}')
+    if not dir_path.is_dir():
+        raise ValueError(f'Directory does not exist: {dir_path}')
+    if args.temp_dir:
+        temp_dir = Path(args.temp_dir).resolve()
+        if not temp_dir.is_dir():
+            raise ValueError(f'Temporary directory does not exist: {temp_dir}')
+    else:
+        temp_dir = None
+    concurrency = args.concurrency
+    max_retries = args.max_retries
+    retry_wait = args.retry_wait
+    print(f'BandcampTUI v{version} starting')
+    with open(cookies_path, 'rt') as f:
+        cookies = f.read().strip()
+    print(f'Loaded cookies from "{cookies_path}"')
+    run_interactive(
+        cookies,
+        dir_path,
+        media_format,
+        temp_dir,
+        ign_file_path,
+        ign_patterns,
+        concurrency,
+        max_retries,
+        retry_wait,
+        args.skip_item_index,
+    )
