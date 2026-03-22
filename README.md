@@ -17,6 +17,16 @@ docker run -it --rm \
 
 Replace `/path/to/music` with the directory where you want downloads saved, and `/path/to/cookies.txt` with your Bandcamp cookies file.
 
+If your terminal supports truecolor (e.g. Ghostty, iTerm2, Windows Terminal), pass `-e TERM=$TERM` to get the full theme experience:
+
+```
+docker run -it --rm \
+  -e TERM=$TERM \
+  -v /path/to/music:/downloads \
+  -v /path/to/cookies.txt:/cookies.txt:ro \
+  sariyamelody/bandcamptui
+```
+
 Additional options can be appended after the image name, e.g.:
 
 ```

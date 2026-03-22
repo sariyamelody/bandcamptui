@@ -9,6 +9,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends git \
     && pip install --no-cache-dir . \
     && apt-get purge -y --auto-remove git
 
+ENV TERM=xterm-256color
+
 VOLUME ["/downloads"]
 
 ENTRYPOINT ["bandcamptui"]
