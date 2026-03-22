@@ -6,6 +6,8 @@
 
 An interactive terminal UI for selectively downloading your Bandcamp purchases. Built with [Textual](https://github.com/Textualize/textual) on top of the excellent [bandcampsync](https://github.com/meeb/bandcampsync) by [@meeb](https://github.com/meeb).
 
+![bandcamptui screenshot](screenshot.png)
+
 ## Install
 
 The recommended way to run bandcamptui is via Docker, which handles all dependencies and works on any platform:
