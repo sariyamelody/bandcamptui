@@ -1,6 +1,6 @@
 # bandcamptui
 
-> **Note:** This package depends on a couple of small changes to bandcampsync that haven't been merged upstream yet ([PR pending](https://github.com/sariyamelody/bandcampsync/tree/sariyamelody/upstream-changes)). It won't be functional until those land.
+> **Note:** This package depends on a recent addition to bandcampsync ([PR #65](https://github.com/meeb/bandcampsync/pull/65)) that hasn't made it into a PyPI release yet. See the install instructions below.
 
 An interactive terminal UI for selectively downloading your Bandcamp purchases. Built with [Textual](https://github.com/Textualize/textual) on top of the excellent [bandcampsync](https://github.com/meeb/bandcampsync) by [@meeb](https://github.com/meeb).
 
@@ -10,7 +10,11 @@ An interactive terminal UI for selectively downloading your Bandcamp purchases. 
 pip install bandcamptui
 ```
 
-Requires [bandcampsync](https://github.com/meeb/bandcampsync) >= 0.7.0.
+Until the next bandcampsync release, you'll also need to install it from source:
+
+```
+pip install git+https://github.com/meeb/bandcampsync.git
+```
 
 ## Usage
 
