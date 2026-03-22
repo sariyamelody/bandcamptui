@@ -1,5 +1,7 @@
 # bandcamptui
 
+**GitHub:** https://github.com/sariyamelody/bandcamptui | **Docker Hub:** https://hub.docker.com/r/sariyamelody/bandcamptui
+
 > **Note:** This package depends on a recent addition to bandcampsync ([PR #65](https://github.com/meeb/bandcampsync/pull/65)) that hasn't made it into a PyPI release yet. The Docker image already includes the correct version — if installing via pip, see the install instructions below.
 
 An interactive terminal UI for selectively downloading your Bandcamp purchases. Built with [Textual](https://github.com/Textualize/textual) on top of the excellent [bandcampsync](https://github.com/meeb/bandcampsync) by [@meeb](https://github.com/meeb).
