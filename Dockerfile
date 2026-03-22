@@ -4,7 +4,7 @@ WORKDIR /app
 
 COPY . .
 
-RUN apt-get update && apt-get install -y --no-install-recommends git \
+RUN apt-get update && apt-get install -y --no-install-recommends git ncurses-term \
     && rm -rf /var/lib/apt/lists/* \
     && pip install --no-cache-dir . \
     && apt-get purge -y --auto-remove git
