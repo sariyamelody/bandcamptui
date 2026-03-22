@@ -1,6 +1,6 @@
 # bandcamptui
 
-**GitHub:** https://github.com/sariyamelody/bandcamptui | **Docker Hub:** https://hub.docker.com/r/sariyamelody/bandcamptui
+[GitHub](https://github.com/sariyamelody/bandcamptui) | [Docker Hub](https://hub.docker.com/r/sariyamelody/bandcamptui)
 
 > **Note:** This package depends on a recent addition to bandcampsync ([PR #65](https://github.com/meeb/bandcampsync/pull/65)) that hasn't made it into a PyPI release yet. The Docker image already includes the correct version — if installing via pip, see the install instructions below.
 
@@ -80,3 +80,7 @@ bandcamptui -c cookies.txt -d /path/to/music
 ## License
 
 BSD 3-Clause, same as bandcampsync.
+
+---
+
+If you liked this enough to want to support it, please consider supporting [bandcampsync](https://github.com/meeb/bandcampsync) instead — this project only exists because of it.
