@@ -4,7 +4,10 @@ WORKDIR /app
 
 COPY . .
 
-RUN pip install --no-cache-dir .
+RUN apt-get update && apt-get install -y --no-install-recommends git \
+    && rm -rf /var/lib/apt/lists/* \
+    && pip install --no-cache-dir . \
+    && apt-get purge -y --auto-remove git
 
 VOLUME ["/downloads"]
 
